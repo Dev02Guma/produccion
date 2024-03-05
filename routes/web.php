@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,7 +63,7 @@ Route::get('/rol', 'Admin\RolController@index')->name('rol');
 Route::get('rol/crear', 'Admin\RolController@crear')->name('crear_rol');
 Route::post('guardar_rol', 'Admin\RolController@guardar')->name('guardar_rol');
 Route::get('menu', 'Admin\MenuRolController@index')->name('menu');
-Route::get('menu/crear', 'Admin\Menu_controller@index')->name('menu/crear');
+Route::get('menu/crear', 'Admin\menu_controller@index')->name('menu/crear');
 Route::get('menu-rol', 'Admin\MenuRolController@index')->name('menu-rol');
 Route::post('menu-rol', 'Admin\MenuRolController@guardar')->name('guardar_menu_rol');
 Route::post('menu/guardar', 'Admin\menu_controller@guardar')->name('menu/guardar');
@@ -246,3 +247,6 @@ Route::get('/home', 'User\DashboardController@index')->name('home');
 Route::get('/dashboard_detalles', 'User\DashboardController@getDetalles')->name('/dashboard_detalles');
 
 Auth::routes();
+
+Route::get('Accesos', 'User\LogsAccessController@getHome')->name('getHome');
+Route::post('getDataLogs', 'User\LogsAccessController@getDataLogs')->name('getDataLogs');
